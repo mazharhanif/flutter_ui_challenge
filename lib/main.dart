@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_challenge/widgets/Day2/flexible.dart';
+import 'package:flutter_ui_challenge/widgets/Day3/popup.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,10 +7,11 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo', theme: ThemeData(), home: FlexibleWidget());
+        title: 'Flutter Demo',
+        theme: ThemeData(useMaterial3: true, primarySwatch: Colors.blue),
+        home: PopupWidget());
   }
 }
