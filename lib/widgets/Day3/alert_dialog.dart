@@ -7,27 +7,31 @@ class AlertDialogWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Alert Dialog"),
+        title: Text("Alert dailog"),
       ),
       body: Center(
         child: TextButton(
             onPressed: () => showDialog(
                   context: context,
                   builder: (BuildContext context) => AlertDialog(
-                    title: Text("your payment method are ready"),
-                    content: Text("Are you want to pay your payment?"),
                     actions: [
                       TextButton(
-                          onPressed: () => Navigator.pop(context, "cancel"),
-                          child: Text("Cancel")),
+                          onPressed: () {
+                            Navigator.pop(context, "cancle");
+                          },
+                          child: Text("cancle")),
                       TextButton(
-                          onPressed: () => Navigator.pop(context, "Ok"),
-                          child: Text("Ok"))
+                          onPressed: () {
+                            Navigator.pop(context, "ok");
+                          },
+                          child: Text("ok")),
                     ],
                     backgroundColor: Colors.amberAccent,
+                    content: Text("Are you ready for payment?"),
+                    title: Text("your payment process are ready"),
                   ),
                 ),
-            child: Text("Click Me")),
+            child: Text("Click me")),
       ),
     );
   }
