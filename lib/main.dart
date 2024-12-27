@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_challenge/widgets/Day4/expansion_tile.dart';
+import 'package:flutter_ui_challenge/widgets/day5/stepper.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,6 +12,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(useMaterial3: true, primarySwatch: Colors.blue),
-        home: ExpansionTileWidget());
+        home: StepperWidget());
   }
 }
