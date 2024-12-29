@@ -26,6 +26,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
     if (!emailRegExp.hasMatch(value)) {
       return 'please enter an valid email';
     }
+    return null;
   }
 
   @override
