@@ -8,19 +8,20 @@ class StepperWidget extends StatefulWidget {
 }
 
 class _StepperWidgetState extends State<StepperWidget> {
-  int _currentStep = 1;
+  int currentStep = 1;
+
   void _onStepContinue() {
-    if (_currentStep < getSteps().length - 1) {
+    if (currentStep < getSteps().length - 1) {
       setState(() {
-        _currentStep++;
+        currentStep++;
       });
     }
   }
 
   void _onStepCancel() {
-    if (_currentStep > 0) {
+    if (currentStep > 0) {
       setState(() {
-        _currentStep--;
+        currentStep--;
       });
     }
   }
@@ -51,12 +52,12 @@ class _StepperWidgetState extends State<StepperWidget> {
         title: const Text('Stepper Widget Example'),
       ),
       body: Stepper(
-          currentStep: _currentStep,
+          currentStep: currentStep,
           onStepCancel: _onStepCancel,
           onStepContinue: _onStepContinue,
           onStepTapped: (int step) {
             setState(() {
-              _currentStep = step;
+              currentStep = step;
             });
           },
           steps: getSteps()),

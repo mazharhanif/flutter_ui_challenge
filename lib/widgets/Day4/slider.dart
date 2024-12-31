@@ -9,6 +9,7 @@ class SliderWidget extends StatefulWidget {
 
 class _SliderWidgetState extends State<SliderWidget> {
   RangeValues values = RangeValues(0, 100);
+
   @override
   Widget build(BuildContext context) {
     RangeLabels labels =
@@ -25,15 +26,15 @@ class _SliderWidgetState extends State<SliderWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               RangeSlider(
+                  values: values,
+                  labels: labels,
+                  divisions: 100,
                   max: 100,
                   min: 0,
-                  divisions: 100,
-                  labels: labels,
-                  values: values,
                   onChanged: (newValue) {
-                    values = newValue;
-
-                    setState(() {});
+                    setState(() {
+                      values = newValue;
+                    });
                   })
             ],
           ),

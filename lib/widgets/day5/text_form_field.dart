@@ -8,23 +8,22 @@ class TextFormFieldWidget extends StatefulWidget {
 }
 
 class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
-  var _obscureText = true;
-  var emailText = TextEditingController();
-  var passwordText = TextEditingController();
-  var userNameText = TextEditingController();
+  var userName = TextEditingController();
+  var email = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  void _loginForm() {
+  void _loginkey() {
     if (_formKey.currentState!.validate()) {}
   }
 
-  String? _validateEmail(value) {
+  String? _emailValidate(value) {
     if (value!.isEmpty) {
-      return "please enter an email";
+      return "please enter the email";
     }
-    RegExp emailRegExp =
-        RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
-    if (!emailRegExp.hasMatch(value)) {
-      return 'please enter an valid email';
+    RegExp _emailRegEXp = RegExp(
+      r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+    );
+    if (!_emailRegEXp.hasMatch(value)) {
+      return "please enter the valid email";
     }
     return null;
   }
@@ -34,103 +33,53 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
     return Scaffold(
       body: Center(
         child: Form(
-          key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: 300,
-                child: TextFormField(
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  controller: userNameText,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "please enter the user name";
-                    }
-                    return null;
-                  },
-                  decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.email),
-                      labelText: "UserName",
-                      hintText: "Enter username",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(11),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(11),
-                          borderSide: BorderSide(color: Colors.black)),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(11),
-                          borderSide: BorderSide(color: Colors.blueAccent))),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 300,
+                  child: TextFormField(
+                    controller: userName,
+                    decoration: InputDecoration(
+                        hintText: "Enter userName",
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(21))),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "please enter the username";
+                      }
+                      return null;
+                    },
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                width: 300,
-                child: TextFormField(
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  validator: _validateEmail,
-                  controller: emailText,
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(11),
-                      ),
-                      suffixIcon: Icon(Icons.remove_red_eye),
-                      labelText: "Email",
-                      hintText: "Enter Email",
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(11),
-                          borderSide: BorderSide(color: Colors.black)),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(11),
-                          borderSide: BorderSide(color: Colors.blueAccent))),
+                SizedBox(
+                  height: 10,
                 ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                width: 300,
-                child: TextFormField(
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'please enter the password';
-                    }
-                    return null;
-                  },
-                  obscureText: _obscureText,
-                  controller: passwordText,
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(11),
-                      ),
-                      suffixIcon: IconButton(
-                          onPressed: () {
-                            setState(() {
-                              _obscureText = !_obscureText;
-                            });
-                          },
-                          icon: Icon(_obscureText
-                              ? Icons.visibility
-                              : Icons.visibility_off)),
-                      labelText: "Password",
-                      hintText: "Enter password",
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(11),
-                          borderSide: BorderSide(color: Colors.black)),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(11),
-                          borderSide: BorderSide(color: Colors.blueAccent))),
+                Container(
+                  width: 300,
+                  child: TextFormField(
+                    controller: email,
+                    decoration: InputDecoration(
+                        hintText: "Enter email",
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(21))),
+                    validator: _emailValidate,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              ElevatedButton(onPressed: _loginForm, child: Text("Login"))
-            ],
+                SizedBox(
+                  height: 10,
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        _loginkey();
+                      });
+                    },
+                    child: Text("Login"))
+              ],
+            ),
           ),
         ),
       ),

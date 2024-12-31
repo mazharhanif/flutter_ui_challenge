@@ -8,7 +8,7 @@ class SwitchWidget extends StatefulWidget {
 }
 
 class _SwitchWidgetState extends State<SwitchWidget> {
-  bool notification = true;
+  bool notification = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

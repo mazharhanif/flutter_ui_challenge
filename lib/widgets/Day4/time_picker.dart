@@ -25,10 +25,10 @@ class TimePickerWidget extends StatelessWidget {
                       initialEntryMode: TimePickerEntryMode.input);
                   if (timePicker != null) {
                     print(
-                        'show timepicker:${timePicker.hour}:${timePicker.minute}:${timePicker.period}');
+                        "time Picker:${timePicker.minute}:${timePicker.hour}:${timePicker.period}");
                   }
                 },
-                child: Text("show"))
+                child: Text("show "))
           ],
         ),
       ),
