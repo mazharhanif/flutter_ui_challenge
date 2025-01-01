@@ -14,31 +14,28 @@ class _LongpressdraggableWidgetState extends State<LongpressdraggableWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: LayoutBuilder(builder: (context, Constraints) {
-        return Stack(
-          children: [
-            Positioned(
-              left: _offset.dx,
-              top: _offset.dy,
-              child: LongPressDraggable(
-                child: Image.network(
-                    width: 200,
-                    "https://th.bing.com/th/id/R.163c337e598c31efc9efec924da8c4d3?rik=BzJu8SVpmYeFiw&pid=ImgRaw&r=0"),
-                feedback: Image.network(
+        return Stack(children: [
+          Positioned(
+            left: _offset.dx,
+            top: _offset.dy,
+            child: LongPressDraggable(
+              child: Image.network(
                   width: 200,
-                  "https://th.bing.com/th/id/R.163c337e598c31efc9efec924da8c4d3?rik=BzJu8SVpmYeFiw&pid=ImgRaw&r=0",
-                  color: Colors.brown,
+                  "https://th.bing.com/th/id/OIP.-r-KbhNbyaJUxW_a7oNM7QAAAA?rs=1&pid=ImgDetMain"),
+              feedback: Image.network(
+                  width: 200,
+                  color: Colors.amber,
                   colorBlendMode: BlendMode.colorBurn,
-                ),
-                onDragEnd: (details) {
-                  setState(() {
-                    _offset = Offset(details.offset.dx, details.offset.dy);
-                  });
-                },
-              ),
-            )
-          ],
-        );
-      }),
+                  "https://th.bing.com/th/id/OIP.-r-KbhNbyaJUxW_a7oNM7QAAAA?rs=1&pid=ImgDetMain"),
+              onDragEnd: (details) {
+                setState(() {
+                  _offset = Offset(details.offset.dx, details.offset.dy);
+                });
+              },
+            ),
+          ),
+        ]);
+      },) 
     );
   }
 }

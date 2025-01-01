@@ -8,27 +8,28 @@ class DismisbleWidget extends StatefulWidget {
 }
 
 class _DismisbleWidgetState extends State<DismisbleWidget> {
-  List<int> item = List.generate(100, (int index) => index);
+  List<int> items = List.generate(100, (int index) => index);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ListView.builder(
-          itemCount: item.length,
+      body: ListView.builder(
+          itemCount: items.length,
           itemBuilder: (BuildContext context, int index) {
-      return Dismissible(
-          background: Container(
-            color: Colors.amberAccent,
-            child: Icon(Icons.delete),
-          ),
-          key: ValueKey(item[index]),
-          onDismissed: (direction) {
-            setState(() {
-              item.removeAt(index);
-            });
-          },
-          child: ListTile(
-            title: Text("Item ${item[index]}"),
-          ));
-    }));
+            return Dismissible(
+                background: Container(
+                  color: Colors.amberAccent,
+                  child: Icon(Icons.delete),
+                ),
+                key: ValueKey("$items[index]"),
+                onDismissed: (direction) {
+                  setState(() {
+                    items.removeAt(index);
+                  });
+                },
+                child: ListTile(
+                  title: Text("items ${items[index]}"),
+                ));
+          }),
+    );
   }
 }
