@@ -12,24 +12,27 @@ class _DismisbleWidgetState extends State<DismisbleWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
-          itemCount: items.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Dismissible(
-                background: Container(
-                  color: Colors.amberAccent,
-                  child: Icon(Icons.delete),
-                ),
-                key: ValueKey("$items[index]"),
-                onDismissed: (direction) {
-                  setState(() {
-                    items.removeAt(index);
-                  });
-                },
-                child: ListTile(
-                  title: Text("items ${items[index]}"),
-                ));
-          }),
-    );
+        body: ListView.builder(itemBuilder: (BuildContext context, int index) {
+      return Dismissible(
+          background: Container(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 300),
+              child: Icon(
+                Icons.delete,
+                color: Colors.redAccent,
+              ),
+            ),
+          ),
+          direction: DismissDirection.horizontal,
+          onDismissed: (direction) {
+            setState(() {
+              items.removeAt(index);
+            });
+          },
+          key: ValueKey(items[index]),
+          child: ListTile(
+            title: Text("item${items[index]}"),
+          ));
+    }));
   }
 }

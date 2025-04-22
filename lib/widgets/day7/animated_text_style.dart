@@ -8,10 +8,8 @@ class AnimatedDefaultWidget extends StatefulWidget {
 }
 
 class _AnimatedDefaultWidgetState extends State<AnimatedDefaultWidget> {
-  bool _first = true;
-
-  double _fontSize = 60.0;
-
+  bool isFirst = false;
+  double fontsize = 60.0;
   Color _color = Colors.black;
 
   @override
@@ -23,18 +21,18 @@ class _AnimatedDefaultWidgetState extends State<AnimatedDefaultWidget> {
       body: Column(
         children: [
           AnimatedDefaultTextStyle(
-              child: Text("Animated Defualt Text Styles"),
-              style: TextStyle(fontSize: _fontSize, color: _color),
+              child: Text("Animated Default Text Style"),
+              style: TextStyle(fontSize: fontsize, color: _color),
               duration: Duration(seconds: 2)),
           TextButton(
               onPressed: () {
                 setState(() {
-                  _fontSize = _first ? 90 : 60;
-                  _color = _first ? Colors.black : Colors.red;
-                  _first = !_first;
+                  fontsize = isFirst ? 60.0 : 90.0;
+                  _color = isFirst ? Colors.black : Colors.blue;
+                  isFirst = !isFirst;
                 });
               },
-              child: Text("Switch"))
+              child: Text("Show"))
         ],
       ),
     );

@@ -27,7 +27,7 @@ class FlexibleWidget extends StatelessWidget {
           ),
           Flexible(
             // flex: 4,
-            fit: FlexFit.tight,
+            fit: FlexFit.loose,
             child: Container(
               child: Text(
                 "Second Container",

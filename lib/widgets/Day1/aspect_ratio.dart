@@ -9,10 +9,19 @@ class AspectRatioWidget extends StatelessWidget {
       appBar: AppBar(),
       body: Column(
         children: [
-          AspectRatio(
-            aspectRatio: 2 / 1,
-            child: Container(
-              color: Colors.amberAccent,
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: AspectRatio(
+              aspectRatio: 2 / 3,
+              child: Container(
+                color: Colors.amberAccent,
+                child: Image(
+                  image: AssetImage(
+                    "assets/download2.jpeg",
+                  ),
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
           )
         ],

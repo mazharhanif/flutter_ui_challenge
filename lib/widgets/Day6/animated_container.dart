@@ -11,9 +11,9 @@ class AnimatedContainerWidget extends StatefulWidget {
 class _AnimatedContainerWidgetState extends State<AnimatedContainerWidget> {
   var _width = 200.0;
   var _height = 100.0;
-  var flag = true;
-  Decoration myDec = BoxDecoration(
-      borderRadius: BorderRadius.circular(2), color: Colors.blueAccent);
+  var Flag = true;
+  var myDec = BoxDecoration(
+      borderRadius: BorderRadius.circular(2), color: Colors.redAccent);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,36 +23,38 @@ class _AnimatedContainerWidgetState extends State<AnimatedContainerWidget> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  if (flag) {
-                    _height = 200.0;
-                    _width = 100.0;
-                    flag = false;
-                    myDec = BoxDecoration(
-                        borderRadius: BorderRadius.circular(21),
-                        color: Colors.brown);
-                  } else {
-                    _height = 100.0;
-                    _width = 200.0;
-                    flag = true;
-                    myDec = BoxDecoration(
-                        borderRadius: BorderRadius.circular(2),
-                        color: Colors.amberAccent);
-                  }
-                });
-              },
-              child: AnimatedContainer(
-                  decoration: myDec,
-                  width: _width,
-                  height: _height,
-                  duration: Duration(seconds: 2)),
-            ),
-          ],
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      if (Flag) {
+                        _width = 200.0;
+                        _height = 100.0;
+                        Flag = false;
+                        myDec = BoxDecoration(
+                            borderRadius: BorderRadius.circular(21),
+                            color: Colors.redAccent);
+                      } else {
+                        _height = 200.0;
+                        _width = 100.0;
+                        Flag = true;
+                        myDec = BoxDecoration(
+                            borderRadius: BorderRadius.circular(21),
+                            color: Colors.blueAccent);
+                      }
+                    });
+                  },
+                  child: AnimatedContainer(
+                    decoration: myDec,
+                    duration: Duration(seconds: 2),
+                    width: _width,
+                    height: _height,
+                  ))
+            ],
+          ),
         ),
       ),
     );

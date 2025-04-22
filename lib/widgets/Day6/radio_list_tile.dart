@@ -10,7 +10,7 @@ class RadioListTileWidget extends StatefulWidget {
 }
 
 class _RadioListTileWidgetState extends State<RadioListTileWidget> {
-  MyOption myOption = MyOption.option1;
+  MyOption _myOption = MyOption.option1;
 
   @override
   Widget build(BuildContext context) {
@@ -23,30 +23,19 @@ class _RadioListTileWidgetState extends State<RadioListTileWidget> {
         child: Column(
           children: [
             RadioListTile(
-                title: Text("Select option one"),
                 value: MyOption.option1,
-                groupValue: myOption,
+                groupValue: _myOption,
                 onChanged: (value) {
                   setState(() {
-                    myOption = value!;
+                    _myOption = value!;
                   });
                 }),
             RadioListTile(
-                title: Text("Select option two"),
                 value: MyOption.option2,
-                groupValue: myOption,
+                groupValue: _myOption,
                 onChanged: (value) {
                   setState(() {
-                    myOption = value!;
-                  });
-                }),
-            RadioListTile(
-                title: Text("Select option Three"),
-                value: MyOption.option3,
-                groupValue: myOption,
-                onChanged: (value) {
-                  setState(() {
-                    myOption = value!;
+                    _myOption = value!;
                   });
                 })
           ],

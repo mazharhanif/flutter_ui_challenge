@@ -19,18 +19,17 @@ class MaterialBannerWidget extends StatelessWidget {
                 onPressed: () {
                   ScaffoldMessenger.of(context).showMaterialBanner(
                       MaterialBanner(
-                          content: Text("this is a material banner"),
+                          content: Text("This is a material banner"),
                           actions: [
                         TextButton(
-                          onPressed: () {
-                            ScaffoldMessenger.of(context)
-                                .clearMaterialBanners();
-                          },
-                          child: Text("Dismise"),
-                        )
+                            onPressed: () {
+                              ScaffoldMessenger.of(context)
+                                  .clearMaterialBanners();
+                            },
+                            child: Text("Dismises"))
                       ]));
                 },
-                child: Text("Material banner"))
+                child: Text("Material Banner"))
           ],
         ),
       ),

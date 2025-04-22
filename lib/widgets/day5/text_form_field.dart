@@ -11,21 +11,21 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
   var userName = TextEditingController();
   var email = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  void _loginkey() {
-    if (_formKey.currentState!.validate()) {}
-  }
-
   String? _emailValidate(value) {
     if (value!.isEmpty) {
       return "please enter the email";
     }
-    RegExp _emailRegEXp = RegExp(
+    RegExp emailRgExp = RegExp(
       r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
     );
-    if (!_emailRegEXp.hasMatch(value)) {
+    if (!emailRgExp.hasMatch(value)) {
       return "please enter the valid email";
     }
     return null;
+  }
+
+  void _loginKey() {
+    if (_formKey.currentState!.validate()) {}
   }
 
   @override
@@ -74,7 +74,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
                 ElevatedButton(
                     onPressed: () {
                       setState(() {
-                        _loginkey();
+                        _loginKey();
                       });
                     },
                     child: Text("Login"))

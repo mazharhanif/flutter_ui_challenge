@@ -7,19 +7,23 @@ class CupertinoContextMenuWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CupertinoContextMenu(
-        actions: [
-          CupertinoContextMenuAction(
-            child: Text("Action one"),
-            onPressed: () => Navigator.pop(context),
-          ),
-          CupertinoContextMenuAction(
-              child: Text("Action Two"),
-              onPressed: () => Navigator.pop(context)),
-        ],
-        child: Image.network(
-            "https://media3.giphy.com/media/ll7LY2ievIBdRBcPOZ/source.gif"),
-      ),
-    );
+        body: Center(
+      child: CupertinoContextMenu(
+          actions: [
+            TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text("Action one")),
+            TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text("Action two"))
+          ],
+          child: ClipRRect(
+              borderRadius: BorderRadius.circular(21),
+              child: Image.asset("assets/download2.jpeg"))),
+    ));
   }
 }

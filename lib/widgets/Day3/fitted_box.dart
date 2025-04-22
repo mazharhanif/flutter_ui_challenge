@@ -6,15 +6,18 @@ class FittedBoxWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(),
         body: FittedBox(
-      child: Row(
-        children: [
-          Image.network(
-              "https://th.bing.com/th/id/OIP.RWYggzUNsj4eY85uoHTCwQHaEK?rs=1&pid=ImgDetMain"),
-          Image.network(
-              "https://th.bing.com/th/id/OIP.lqquRiuWc1ZM6Wsk5Lj7HAHaDD?w=727&h=300&rs=1&pid=ImgDetMain")
-        ],
-      ),
-    ));
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.network(
+                  "https://th.bing.com/th/id/OIP.RWYggzUNsj4eY85uoHTCwQHaEK?rs=1&pid=ImgDetMain"),
+              Image.network(
+                  "https://th.bing.com/th/id/OIP.lqquRiuWc1ZM6Wsk5Lj7HAHaDD?w=727&h=300&rs=1&pid=ImgDetMain")
+            ],
+          ),
+        ));
   }
 }

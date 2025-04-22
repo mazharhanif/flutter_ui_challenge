@@ -8,14 +8,13 @@ class AnimatedIconWidget extends StatefulWidget {
 }
 
 class _AnimatedIconWidgetState extends State<AnimatedIconWidget>
-    with TickerProviderStateMixin {
-  bool _isPaly = false;
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-
+  bool _isPlay = false;
   @override
   void initState() {
     _controller =
-        AnimationController(vsync: this, duration: Duration(microseconds: 1));
+        AnimationController(vsync: this, duration: Duration(seconds: 1));
     super.initState();
   }
 
@@ -28,27 +27,25 @@ class _AnimatedIconWidgetState extends State<AnimatedIconWidget>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Animated Icons"),
-      ),
-      body: GestureDetector(
+        appBar: AppBar(
+          title: Text("Animated Icons"),
+        ),
+        body: GestureDetector(
           onTap: () {
             setState(() {
-              if (_isPaly == false) {
+              if (_isPlay == false) {
                 _controller.forward();
-                _isPaly = true;
+                _isPlay = true;
               } else {
                 _controller.reverse();
-                _isPaly = false;
+                _isPlay = false;
               }
             });
           },
           child: Center(
             child: AnimatedIcon(
-                icon: AnimatedIcons.play_pause,
-                size: 30,
-                progress: _controller),
-          )),
-    );
+                icon: AnimatedIcons.play_pause, progress: _controller),
+          ),
+        ));
   }
 }

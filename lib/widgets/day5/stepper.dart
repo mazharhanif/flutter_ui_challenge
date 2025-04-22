@@ -11,7 +11,7 @@ class _StepperWidgetState extends State<StepperWidget> {
   int currentStep = 1;
 
   void _onStepContinue() {
-    if (currentStep < getSteps().length - 1) {
+    if (currentStep < gitStep.length - 1) {
       setState(() {
         currentStep++;
       });
@@ -26,41 +26,39 @@ class _StepperWidgetState extends State<StepperWidget> {
     }
   }
 
-  List<Step> getSteps() {
-    return [
-      Step(
-          title: Text("Account"),
-          content: Text("Enter your account details."),
-          isActive: true),
-      const Step(
+  List<Step> gitStep = [
+    Step(
+        title: Text("Account"),
+        content: Text(
+          "Fill the complete account detail",
+        ),
+        isActive: true),
+    Step(
         title: Text("Profile"),
-        content: Text("Fill in your profile information."),
-        isActive: true,
-      ),
-      const Step(
+        content: Text("Please fill your profile"),
+        isActive: true),
+    Step(
         title: Text("Confirm"),
-        content: Text("Confirm your details."),
-        isActive: true,
-      ),
-    ];
-  }
+        content: Text("Your detail is Confirm"),
+        isActive: true)
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Stepper Widget Example'),
-      ),
-      body: Stepper(
-          currentStep: currentStep,
+        appBar: AppBar(
+          title: const Text('Stepper Widget Example'),
+        ),
+        body: Stepper(
+          steps: gitStep,
           onStepCancel: _onStepCancel,
+          currentStep: currentStep,
           onStepContinue: _onStepContinue,
-          onStepTapped: (int step) {
+          onStepTapped: (int Step) {
             setState(() {
-              currentStep = step;
+              currentStep = Step;
             });
           },
-          steps: getSteps()),
-    );
+        ));
   }
 }
